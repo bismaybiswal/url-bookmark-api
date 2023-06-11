@@ -11,13 +11,53 @@ export const addBookmark = async (req: Request, res: Response): Promise<void> =>
     title: req.body.title,
     description: req.body.description,
     url: req.body.url,
-    created: new Date().toISOString()
+    created: new Date().toISOString(),
+    id: ''
   };
 
   //adding to the DB
   try {
     dataStore.addBookmark(bookmark);
     responseBody = bookmark;
+  } catch(err) {
+    status = 500;
+    responseBody = {
+      "message": "An error occurred"
+    }
+  }
+
+  res.status(status).json(responseBody);
+};
+
+export const listBookmark = async (req: Request, res: Response): Promise<void> => {
+  let status = 200;
+  let responseBody;
+
+  //adding to the DB
+  try {
+    const bookmarks =  await dataStore.listBookmarks();
+    responseBody = bookmarks;
+  } catch(err) {
+    status = 500;
+    responseBody = {
+      "message": "An error occurred"
+    }
+  }
+
+  res.status(status).json(responseBody);
+};
+
+export const deleteBookmark = async (req: Request, res: Response): Promise<void> => {
+  let status = 200;
+  let responseBody;
+  const bookmarkId = req.params.bookmarkId;
+
+  //adding to the DB
+  try {
+    dataStore.deleteBookmark(bookmarkId);
+    responseBody = {
+      "message": "Successfully deleted bookmark : "+bookmarkId;
+    };
   } catch(err) {
     status = 500;
     responseBody = {
