@@ -1,0 +1,29 @@
+// userController.ts
+import { Request, Response } from 'express';
+import { Bookmark } from '../models/bookmark';
+import { DataStore } from '../data';
+const dataStore = DataStore.getInstance();
+
+export const addBookmark = async (req: Request, res: Response): Promise<void> => {
+  let status = 201;
+  let responseBody;
+  const bookmark : Bookmark = {
+    title: req.body.title,
+    description: req.body.description,
+    url: req.body.url,
+    created: new Date().toISOString()
+  };
+
+  //adding to the DB
+  try {
+    dataStore.addBookmark(bookmark);
+    responseBody = bookmark;
+  } catch(err) {
+    status = 500;
+    responseBody = {
+      "message": "An error occurred"
+    }
+  }
+
+  res.status(status).json(responseBody);
+};
