@@ -32,7 +32,7 @@ export class DataStore {
 
    public async addBookmark(bookmark: Bookmark): Promise<void> {
        const generateId = this.generateId(bookmark.title);
-       await bookmarks.set("generateId", bookmark);
+       await bookmarks.set(generateId, bookmark);
    }
 
    public async listBookmarks(): Promise<any[]> {
