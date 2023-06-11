@@ -11,8 +11,7 @@ export const addBookmark = async (req: Request, res: Response): Promise<void> =>
     title: req.body.title,
     description: req.body.description,
     url: req.body.url,
-    created: new Date().toISOString(),
-    id: ''
+    created: new Date().toISOString()
   };
 
   //adding to the DB
