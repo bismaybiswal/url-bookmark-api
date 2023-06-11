@@ -56,7 +56,7 @@ export const deleteBookmark = async (req: Request, res: Response): Promise<void>
   try {
     dataStore.deleteBookmark(bookmarkId);
     responseBody = {
-      "message": "Successfully deleted bookmark : "+bookmarkId;
+      "message": "Successfully deleted bookmark : "+bookmarkId
     };
   } catch(err) {
     status = 500;
