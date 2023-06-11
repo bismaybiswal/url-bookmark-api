@@ -36,7 +36,7 @@ export class DataStore {
        await bookmarks.set(generateId, bookmark);
    }
 
-   public async getBookmark(bookmarkId: String): Promise<any> {
+   public async getBookmark(bookmarkId: any): Promise<any> {
     return await bookmarks.get(bookmarkId)
    }
 

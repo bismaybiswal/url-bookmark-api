@@ -72,11 +72,11 @@ export const deleteBookmark = async (req: Request, res: Response): Promise<void>
 export const getBookmark = async (req: Request, res: Response): Promise<void> => {
   let status = 200;
   let responseBody;
-  const bookmarkId = req.query.bookmarkId;
+  const id = req.query.bookmarkId;
 
   //adding to the DB
   try {
-    let res = dataStore.getBookmark(bookmarkId);
+    let res = dataStore.getBookmark(id);
     responseBody = res;
   } catch(err) {
     status = 500;
