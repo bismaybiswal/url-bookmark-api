@@ -37,6 +37,7 @@ export const listBookmark = async (req: Request, res: Response): Promise<void> =
     const bookmarks =  await dataStore.listBookmarks();
     responseBody = bookmarks;
   } catch(err) {
+    console.log(err);
     status = 500;
     responseBody = {
       "message": "An error occurred"
