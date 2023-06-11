@@ -67,3 +67,23 @@ export const deleteBookmark = async (req: Request, res: Response): Promise<void>
 
   res.status(status).json(responseBody);
 };
+
+
+export const getBookmark = async (req: Request, res: Response): Promise<void> => {
+  let status = 200;
+  let responseBody;
+  const bookmarkId = req.params.bookmarkId;
+
+  //adding to the DB
+  try {
+    let res = dataStore.getBookmark(bookmarkId);
+    responseBody = res;
+  } catch(err) {
+    status = 500;
+    responseBody = {
+      "message": "An error occurred"
+    }
+  }
+
+  res.status(status).json(responseBody);
+};
