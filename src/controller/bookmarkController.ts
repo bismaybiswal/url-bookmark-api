@@ -10,8 +10,7 @@ export const addBookmark = async (req: Request, res: Response): Promise<void> =>
   const bookmark : Bookmark = {
     title: req.body.title,
     description: req.body.description,
-    url: req.body.url,
-    createdDate: new Date().toISOString()
+    url: req.body.url
   };
 
   //adding to the DB
