@@ -41,7 +41,7 @@ export class DataStore {
    }
 
    public async listBookmarks(): Promise<any[]> {
-    return await bookmarks.list(2);
+    return await bookmarks.list();
    }
 
    public async deleteBookmark(bookmarkId:String) : Promise<void> {
