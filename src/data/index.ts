@@ -44,9 +44,8 @@ export class DataStore {
     return await bookmarks.list();
    }
 
-   public async deleteBookmark(bookmarkId:String) : Promise<void> {
-    await bookmarks.delete("generateId");
-    await bookmarks.delete(bookmarkId);
-}
+   public async deleteBookmark(bookmarkId: String) : Promise<void> {
+     await bookmarks.delete(bookmarkId);
+   }
 }
 
