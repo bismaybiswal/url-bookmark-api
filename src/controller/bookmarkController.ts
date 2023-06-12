@@ -19,6 +19,7 @@ export const addBookmark = async (req: Request, res: Response): Promise<void> =>
     await dataStore.addBookmark(bookmark);
     responseBody = bookmark;
   } catch(err) {
+    console.log(err)
     status = 500;
     responseBody = {
       "message": "An error occurred"
