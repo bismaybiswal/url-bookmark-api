@@ -1,6 +1,6 @@
 import { Bookmark } from "../models/bookmark";
 import CyclicDb = require("@cyclic.sh/dynamodb");
-const db = CyclicDb("tame-lime-bighorn-sheep-tutuCyclicDB");
+const db = CyclicDb("aware-pea-coat-fishCyclicDB");
 const bookmarks = db.collection("bookmarks")
 
 export class DataStore {
