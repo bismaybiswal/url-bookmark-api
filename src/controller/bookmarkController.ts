@@ -50,7 +50,7 @@ export const listBookmark = async (req: Request, res: Response): Promise<void> =
 export const deleteBookmark = async (req: Request, res: Response): Promise<void> => {
   let status = 200;
   let responseBody;
-  const bookmarkId = req.params.bookmarkId;
+  const bookmarkId = req.query.bookmarkId;
 
   //adding to the DB
   try {
