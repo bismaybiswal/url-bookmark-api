@@ -16,7 +16,7 @@ export const addBookmark = async (req: Request, res: Response): Promise<void> =>
 
   //adding to the DB
   try {
-    dataStore.addBookmark(bookmark);
+    await dataStore.addBookmark(bookmark);
     responseBody = bookmark;
   } catch(err) {
     status = 500;
@@ -76,7 +76,7 @@ export const getBookmark = async (req: Request, res: Response): Promise<void> =>
 
   //adding to the DB
   try {
-    let res = dataStore.getBookmark(id);
+    let res = await dataStore.getBookmark(id);
     responseBody = res;
   } catch(err) {
     status = 500;
